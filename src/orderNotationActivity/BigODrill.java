@@ -42,11 +42,11 @@ public class BigODrill {
 
     /**
      * (3)
-     * Demonstrates an algorithm with TODO: What is O( ? ) of the following code?
+     * Demonstrates an algorithm with O(log n)
      * @param numArr - an integer array
      */
     public static int[] puzzle03(int[] numArr) {
-        //TODO: What does the following code do?
+        // Create a new array in which stores the data of indices 1,2,4,8,16,32...etc of the original array
         int index2 = 0;
         int[] tempArr = new int[numArr.length];
         for(int index = 1; index < numArr.length; index = index * 2) {
@@ -54,18 +54,32 @@ public class BigODrill {
             index2++;
         }
         return tempArr;
+
+        // Worksheet: The runtime is log2 n of the input, because log algorithm is the inverse operation of exponential calculation.
     }
 
     /**
      * (4)
-     * Demonstrates an algorithm with TODO: What is the O( ? ) of the following code?
+     * Demonstrates an algorithm with O(n)
      * @param numArr -  a two dimensional rectangular integer array a.k.a 2D matrix
      * @return a double that represents the sparsity of numArr
      */
     public static double sparsity(int[][] numArr) {
-        //TODO: Write the code that calculates and returns the sparsity of the input
-        // rectangular integer array numArr
-        return 0; // Placeholder to make it compile.
+        totalCount = 0;
+        zeroCount = 0;
+        for (int i = 0; i < numArr.length; i++){
+            for (int j = 0; j < numArr[i].length; j++){
+                totalCount++;
+                if (numArr[i][j] == 0){
+                    zeroCount++;
+                }
+            }
+        }
+        return zeroCount/totalCount; 
+
+        // Worksheet: The runtime will be the same as the number of inputs, since each element is only accessed once in the code.
+        // Real-life usage: A rating system maybe? Each row represents a person, and each column represents an attribute to be rated.
+
 
     }
 
