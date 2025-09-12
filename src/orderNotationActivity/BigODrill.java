@@ -56,6 +56,7 @@ public class BigODrill {
         return tempArr;
 
         // Worksheet: The runtime is log2 n of the input, because log algorithm is the inverse operation of exponential calculation.
+        //Every time the input doubles, one extra step is needed, which is why the runtime is O(logn)
     }
 
     /**
@@ -65,8 +66,8 @@ public class BigODrill {
      * @return a double that represents the sparsity of numArr
      */
     public static double sparsity(int[][] numArr) {
-        totalCount = 0;
-        zeroCount = 0;
+        int totalCount = 0;
+        int zeroCount = 0;
         for (int i = 0; i < numArr.length; i++){
             for (int j = 0; j < numArr[i].length; j++){
                 totalCount++;
@@ -77,7 +78,8 @@ public class BigODrill {
         }
         return zeroCount/totalCount; 
 
-        // Worksheet: The runtime will be the same as the number of inputs, since each element is only accessed once in the code.
+        // Worksheet: The runtime will be O(n^2), because there is a loop with a runtime of O(n) and the nested loop also has a runtime of O(n).
+        //Using the product rule, that makes the total runtime O(n^2)
         // Real-life usage: A rating system maybe? Each row represents a person, and each column represents an attribute to be rated.
 
 
